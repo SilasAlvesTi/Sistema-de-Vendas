@@ -31,10 +31,10 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             label1 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            btnCadastrarCliente = new Button();
+            btnCadastrarProduto = new Button();
+            btnVender = new Button();
+            btnContas = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
@@ -69,10 +69,10 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(button1, 0, 0);
-            tableLayoutPanel2.Controls.Add(button2, 1, 0);
-            tableLayoutPanel2.Controls.Add(button3, 1, 1);
-            tableLayoutPanel2.Controls.Add(button4, 0, 1);
+            tableLayoutPanel2.Controls.Add(btnCadastrarCliente, 0, 0);
+            tableLayoutPanel2.Controls.Add(btnCadastrarProduto, 1, 0);
+            tableLayoutPanel2.Controls.Add(btnVender, 1, 1);
+            tableLayoutPanel2.Controls.Add(btnContas, 0, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 35);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -82,48 +82,50 @@
             tableLayoutPanel2.Size = new Size(744, 405);
             tableLayoutPanel2.TabIndex = 1;
             // 
-            // button1
+            // btnCadastrarCliente
             // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Location = new Point(200, 119);
-            button1.Margin = new Padding(3, 3, 25, 10);
-            button1.Name = "button1";
-            button1.Size = new Size(147, 73);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnCadastrarCliente.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCadastrarCliente.Location = new Point(242, 138);
+            btnCadastrarCliente.Margin = new Padding(3, 3, 25, 10);
+            btnCadastrarCliente.Name = "btnCadastrarCliente";
+            btnCadastrarCliente.Size = new Size(105, 54);
+            btnCadastrarCliente.TabIndex = 0;
+            btnCadastrarCliente.Text = "Cadastrar Clientes";
+            btnCadastrarCliente.UseVisualStyleBackColor = true;
+            btnCadastrarCliente.Click += this.btnCadastrarCliente_Click;
             // 
-            // button2
+            // btnCadastrarProduto
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button2.Location = new Point(397, 119);
-            button2.Margin = new Padding(25, 3, 3, 10);
-            button2.Name = "button2";
-            button2.Size = new Size(147, 73);
-            button2.TabIndex = 1;
-            button2.Text = "button1";
-            button2.UseVisualStyleBackColor = true;
+            btnCadastrarProduto.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnCadastrarProduto.Location = new Point(397, 138);
+            btnCadastrarProduto.Margin = new Padding(25, 3, 3, 10);
+            btnCadastrarProduto.Name = "btnCadastrarProduto";
+            btnCadastrarProduto.Size = new Size(105, 54);
+            btnCadastrarProduto.TabIndex = 1;
+            btnCadastrarProduto.Text = "Cadastrar Produtos";
+            btnCadastrarProduto.UseVisualStyleBackColor = true;
+            btnCadastrarProduto.Click += btnCadastrarProduto_Click;
             // 
-            // button3
+            // btnVender
             // 
-            button3.Location = new Point(397, 212);
-            button3.Margin = new Padding(25, 10, 3, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(147, 73);
-            button3.TabIndex = 3;
-            button3.Text = "button1";
-            button3.UseVisualStyleBackColor = true;
+            btnVender.Location = new Point(397, 212);
+            btnVender.Margin = new Padding(25, 10, 3, 3);
+            btnVender.Name = "btnVender";
+            btnVender.Size = new Size(105, 54);
+            btnVender.TabIndex = 3;
+            btnVender.Text = "Vender";
+            btnVender.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnContas
             // 
-            button4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button4.Location = new Point(200, 212);
-            button4.Margin = new Padding(3, 10, 25, 3);
-            button4.Name = "button4";
-            button4.Size = new Size(147, 73);
-            button4.TabIndex = 2;
-            button4.Text = "button1";
-            button4.UseVisualStyleBackColor = true;
+            btnContas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnContas.Location = new Point(242, 212);
+            btnContas.Margin = new Padding(3, 10, 25, 3);
+            btnContas.Name = "btnContas";
+            btnContas.Size = new Size(105, 54);
+            btnContas.TabIndex = 2;
+            btnContas.Text = "Contas";
+            btnContas.UseVisualStyleBackColor = true;
             // 
             // MenuForm
             // 
@@ -133,6 +135,7 @@
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
             Name = "MenuForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de Vendas";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
@@ -145,9 +148,9 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Label label1;
         private TableLayoutPanel tableLayoutPanel2;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button btnCadastrarCliente;
+        private Button btnCadastrarProduto;
+        private Button btnVender;
+        private Button btnContas;
     }
 }

@@ -75,7 +75,7 @@
             btnLogin.TabIndex = 3;
             btnLogin.Text = "Entrar";
             btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += this.btnLogin_Click_1;
+            btnLogin.Click += btnLogin_Click_1;
             // 
             // Login
             // 
@@ -88,6 +88,7 @@
             Controls.Add(txtUserPassword);
             Controls.Add(txtUserLogin);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             Load += Login_Load;
             ResumeLayout(false);

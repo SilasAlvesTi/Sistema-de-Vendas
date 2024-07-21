@@ -8,26 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistema_de_Vendas
+namespace Sistema_de_Vendas.Forms
 {
-    public partial class MenuForm : Form
+    public partial class BaseCadastroForm : Form
     {
-        public MenuForm()
+        public BaseCadastroForm()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void BaseCadastroForm_Load(object sender, EventArgs e)
         {
 
         }
