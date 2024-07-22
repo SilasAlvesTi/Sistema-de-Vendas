@@ -137,6 +137,7 @@
             btnContas.TabIndex = 2;
             btnContas.Text = "Contas";
             btnContas.UseVisualStyleBackColor = false;
+            btnContas.Click += btnContas_Click;
             // 
             // MenuForm
             // 

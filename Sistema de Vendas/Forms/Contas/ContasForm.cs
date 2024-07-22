@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistema_de_Vendas.Forms
+namespace Sistema_de_Vendas.Forms.Contas
 {
-    public partial class CadastroProdutoForm : BaseCadastroForm
+    public partial class ContasForm : Form
     {
-        public CadastroProdutoForm()
+        public ContasForm()
         {
             InitializeComponent();
-            this.lblCadastroTitulo.Text = "Cadastro de Produtos";
         }
     }
 }

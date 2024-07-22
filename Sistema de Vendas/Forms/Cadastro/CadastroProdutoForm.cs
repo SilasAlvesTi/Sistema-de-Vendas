@@ -10,15 +10,16 @@ using System.Windows.Forms;
 
 namespace Sistema_de_Vendas.Forms
 {
-    public partial class CadastroClientesForm : BaseCadastroForm
+    public partial class CadastroProdutoForm : BaseCadastroForm
     {
-        public CadastroClientesForm()
+        public CadastroProdutoForm()
         {
             InitializeComponent();
-            this.lblCadastroTitulo.Text = "Cadastro de Clientes";
+            this.lblCadastroTitulo.Text = "Cadastro de Produtos";
+            this.lblDescricao.Text = "Descrição";
         }
 
-        private void CadastroClientesForm_Load(object sender, EventArgs e)
+        private void CadastroProdutoForm_Load(object sender, EventArgs e)
         {
 
         }

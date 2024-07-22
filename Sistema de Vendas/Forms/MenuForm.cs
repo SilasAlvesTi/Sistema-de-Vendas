@@ -1,4 +1,5 @@
 ﻿using Sistema_de_Vendas.Forms;
+using Sistema_de_Vendas.Forms.Contas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +44,12 @@ namespace Sistema_de_Vendas
         {
             var cadastroProdutos = new CadastroProdutoForm();
             cadastroProdutos.ShowDialog();
+        }
+
+        private void btnContas_Click(object sender, EventArgs e)
+        {
+            var contas = new ContasForm();
+            contas.ShowDialog();
         }
     }
 }

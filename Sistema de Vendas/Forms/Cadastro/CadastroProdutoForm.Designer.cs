@@ -1,6 +1,6 @@
 ﻿namespace Sistema_de_Vendas.Forms
 {
-    partial class CadastroClientesForm
+    partial class CadastroProdutoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             SuspendLayout();
             // 
-            // CadastroClientesForm
+            // CadastroProdutoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "CadastroClientesForm";
-            Text = "Cliente";
-            Load += CadastroClientesForm_Load;
+            Name = "CadastroProdutoForm";
+            Text = "Produtos";
+            Load += CadastroProdutoForm_Load;
             ResumeLayout(false);
         }
 

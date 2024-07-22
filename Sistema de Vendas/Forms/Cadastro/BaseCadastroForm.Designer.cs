@@ -30,15 +30,14 @@
         {
             tblCadastroNav = new TableLayoutPanel();
             lblCadastroTitulo = new Label();
-            dataGridView1 = new DataGridView();
-            btnAdicionar = new Button();
-            button1 = new Button();
+            dgvTabela = new DataGridView();
             btnEditar = new Button();
             btnApagar = new Button();
             label1 = new Label();
-            label2 = new Label();
+            lblDescricao = new Label();
+            btnAdicionar = new Button();
             tblCadastroNav.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTabela).BeginInit();
             SuspendLayout();
             // 
             // tblCadastroNav
@@ -69,38 +68,23 @@
             lblCadastroTitulo.Size = new Size(0, 28);
             lblCadastroTitulo.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvTabela
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(30, 130);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(471, 301);
-            dataGridView1.TabIndex = 1;
-            // 
-            // btnAdicionar
-            // 
-            btnAdicionar.BackColor = Color.FromArgb(0, 0, 192);
-            btnAdicionar.ForeColor = SystemColors.ButtonHighlight;
-            btnAdicionar.Location = new Point(626, 140);
-            btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(97, 58);
-            btnAdicionar.TabIndex = 2;
-            btnAdicionar.Text = "Adicionar";
-            btnAdicionar.UseVisualStyleBackColor = false;
-            btnAdicionar.Click += button1_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(626, 216);
-            button1.Name = "button1";
-            button1.Size = new Size(97, 58);
-            button1.TabIndex = 2;
-            button1.Text = "Adicionar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            dgvTabela.AllowUserToAddRows = false;
+            dgvTabela.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvTabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTabela.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTabela.Location = new Point(30, 130);
+            dgvTabela.MultiSelect = false;
+            dgvTabela.Name = "dgvTabela";
+            dgvTabela.RowHeadersVisible = false;
+            dgvTabela.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvTabela.Size = new Size(471, 301);
+            dgvTabela.TabIndex = 1;
             // 
             // btnEditar
             // 
+            btnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnEditar.BackColor = Color.FromArgb(0, 0, 192);
             btnEditar.ForeColor = SystemColors.ButtonHighlight;
             btnEditar.Location = new Point(626, 216);
@@ -113,9 +97,10 @@
             // 
             // btnApagar
             // 
+            btnApagar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnApagar.BackColor = Color.Red;
             btnApagar.ForeColor = SystemColors.ButtonHighlight;
-            btnApagar.Location = new Point(626, 291);
+            btnApagar.Location = new Point(626, 300);
             btnApagar.Name = "btnApagar";
             btnApagar.Size = new Size(97, 58);
             btnApagar.TabIndex = 2;
@@ -135,17 +120,29 @@
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
             // 
-            // label2
+            // lblDescricao
             // 
-            label2.BackColor = Color.FromArgb(0, 0, 192);
-            label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(161, 93);
-            label2.Name = "label2";
-            label2.Size = new Size(340, 26);
-            label2.TabIndex = 3;
-            label2.Text = "Descrição";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            label2.Click += label1_Click;
+            lblDescricao.BackColor = Color.FromArgb(0, 0, 192);
+            lblDescricao.ForeColor = SystemColors.ButtonHighlight;
+            lblDescricao.Location = new Point(161, 93);
+            lblDescricao.Name = "lblDescricao";
+            lblDescricao.Size = new Size(340, 26);
+            lblDescricao.TabIndex = 3;
+            lblDescricao.TextAlign = ContentAlignment.MiddleCenter;
+            lblDescricao.Click += label1_Click;
+            // 
+            // btnAdicionar
+            // 
+            btnAdicionar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnAdicionar.BackColor = Color.FromArgb(0, 0, 192);
+            btnAdicionar.ForeColor = SystemColors.ButtonHighlight;
+            btnAdicionar.Location = new Point(626, 130);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(97, 58);
+            btnAdicionar.TabIndex = 2;
+            btnAdicionar.Text = "Adicionar";
+            btnAdicionar.UseVisualStyleBackColor = false;
+            btnAdicionar.Click += button1_Click;
             // 
             // BaseCadastroForm
             // 
@@ -153,13 +150,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Silver;
             ClientSize = new Size(832, 457);
-            Controls.Add(label2);
+            Controls.Add(lblDescricao);
             Controls.Add(label1);
             Controls.Add(btnApagar);
-            Controls.Add(btnEditar);
-            Controls.Add(button1);
             Controls.Add(btnAdicionar);
-            Controls.Add(dataGridView1);
+            Controls.Add(btnEditar);
+            Controls.Add(dgvTabela);
             Controls.Add(tblCadastroNav);
             Name = "BaseCadastroForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -167,20 +163,19 @@
             Load += BaseCadastroForm_Load;
             tblCadastroNav.ResumeLayout(false);
             tblCadastroNav.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTabela).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel tblCadastroNav;
+        protected TableLayoutPanel tblCadastroNav;
         protected Label lblCadastroTitulo;
-        private DataGridView dataGridView1;
-        private Button btnAdicionar;
-        private Button button1;
-        private Button btnEditar;
-        private Button btnApagar;
-        private Label label1;
-        private Label label2;
+        protected DataGridView dgvTabela;
+        protected Button btnEditar;
+        protected Button btnApagar;
+        protected Label label1;
+        protected Label lblDescricao;
+        protected Button btnAdicionar;
     }
 }
