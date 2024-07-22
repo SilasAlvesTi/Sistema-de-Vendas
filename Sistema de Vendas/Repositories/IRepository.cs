@@ -9,8 +9,8 @@ namespace Sistema_de_Vendas.Repositories
     public interface IRepository<T>
     {
         IEnumerable<T> GetAll();
-        T Adicionar(T entidade);
-        T Editar(T entidade);
-        T Apagar(T entidade);
+        void Adicionar(T entidade);
+        void Editar(T entidade);
+        void Apagar(T entidade);
     }
 }

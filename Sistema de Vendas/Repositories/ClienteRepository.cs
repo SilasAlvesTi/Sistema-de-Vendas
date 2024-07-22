@@ -16,17 +16,37 @@ namespace Sistema_de_Vendas.Repositories
         {
             _connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         }
-        public Cliente Adicionar(Cliente entidade)
+        public void Adicionar(Cliente entidade)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    string sql = "INSERT INTO clientes " +
+                                 "(nome) VALUES " +
+                                 "(@nome);";
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@nome", entidade.Nome);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public void Apagar(Cliente entidade)
         {
             throw new NotImplementedException();
         }
 
-        public Cliente Apagar(Cliente entidade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Cliente Editar(Cliente entidade)
+        public void Editar(Cliente entidade)
         {
             throw new NotImplementedException();
         }

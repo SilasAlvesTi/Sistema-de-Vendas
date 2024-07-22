@@ -30,6 +30,10 @@
         {
             SuspendLayout();
             // 
+            // btnAdicionar
+            // 
+            btnAdicionar.Click += Adicionar;
+            // 
             // CadastroClientesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);

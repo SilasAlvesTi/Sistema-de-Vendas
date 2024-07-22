@@ -21,5 +21,10 @@ namespace Sistema_de_Vendas.Services
         {
             return _clienteRepository.GetAll().ToList();
         }
+
+        public void AdicionarCliente(Cliente cliente)
+        {
+            _clienteRepository.Adicionar(cliente);
+        }
     }
 }

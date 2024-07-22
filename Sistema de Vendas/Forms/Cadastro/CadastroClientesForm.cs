@@ -1,4 +1,5 @@
-﻿using Sistema_de_Vendas.Services;
+﻿using Sistema_de_Vendas.Forms.Cadastro;
+using Sistema_de_Vendas.Services;
 using System.Data;
 
 namespace Sistema_de_Vendas.Forms
@@ -44,6 +45,15 @@ namespace Sistema_de_Vendas.Forms
         private void lblDescricao_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Adicionar(object sender, EventArgs e)
+        {
+            BaseCriarEditarForm criarEditarForm = new BaseCriarEditarForm();
+            if (criarEditarForm.ShowDialog() == DialogResult.OK)
+            {
+                ListarClientes();
+            }
         }
     }
 }

@@ -93,7 +93,6 @@
             btnEditar.TabIndex = 2;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = false;
-            btnEditar.Click += button1_Click;
             // 
             // btnApagar
             // 
@@ -106,7 +105,6 @@
             btnApagar.TabIndex = 2;
             btnApagar.Text = "Apagar";
             btnApagar.UseVisualStyleBackColor = false;
-            btnApagar.Click += button1_Click;
             // 
             // label1
             // 
@@ -142,7 +140,6 @@
             btnAdicionar.TabIndex = 2;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = false;
-            btnAdicionar.Click += button1_Click;
             // 
             // BaseCadastroForm
             // 

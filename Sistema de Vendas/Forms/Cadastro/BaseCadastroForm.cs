@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sistema_de_Vendas.Forms.Cadastro;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,14 +33,10 @@ namespace Sistema_de_Vendas.Forms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }
