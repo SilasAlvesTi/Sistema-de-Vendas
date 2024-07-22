@@ -41,7 +41,8 @@ namespace Sistema_de_Vendas
 
         private void btnCadastrarProduto_Click(object sender, EventArgs e)
         {
-
+            var cadastroProdutos = new CadastroProdutoForm();
+            cadastroProdutos.ShowDialog();
         }
     }
 }
