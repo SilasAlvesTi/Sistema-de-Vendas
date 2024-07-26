@@ -1,4 +1,5 @@
 ﻿using Sistema_de_Vendas.Forms.Cadastro;
+using Sistema_de_Vendas.Models;
 using Sistema_de_Vendas.Services;
 using System.Data;
 
@@ -19,7 +20,7 @@ namespace Sistema_de_Vendas.Forms
 
         }
 
-        private void ListarClientes()
+        private async void ListarClientes()
         {
             DataTable dataTable = new DataTable();
 
@@ -27,8 +28,7 @@ namespace Sistema_de_Vendas.Forms
             dataTable.Columns.Add("Nome");
 
             ClienteService clienteService = new ClienteService();
-            var clientes = clienteService.GetAllClientes();
-
+            var clientes = await clienteService.GetAllClientes();
             foreach (var cliente in clientes)
             {
                 var row = dataTable.NewRow();
@@ -51,6 +51,28 @@ namespace Sistema_de_Vendas.Forms
         {
             BaseCriarEditarForm criarEditarForm = new BaseCriarEditarForm();
             if (criarEditarForm.ShowDialog() == DialogResult.OK)
+            {
+                ListarClientes();
+            }
+        }
+
+        private void Editar(object sender, EventArgs e)
+        {
+            var val = this.dgvTabela.SelectedRows[0]?.Cells[0].Value.ToString();
+            if (val is null || val.Length is 0)
+                return;
+
+            int clienteId = int.Parse(val);
+
+            var clienteService = new ClienteService();
+            var cliente = clienteService.GetClienteById(clienteId);
+
+            if (cliente is null) return;
+
+            BaseCriarEditarForm editarForm = new BaseCriarEditarForm();
+            editarForm.EditarCliente(cliente);
+
+            if (editarForm.ShowDialog() == DialogResult.OK)
             {
                 ListarClientes();
             }

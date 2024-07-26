@@ -30,6 +30,10 @@
         {
             SuspendLayout();
             // 
+            // btnEditar
+            // 
+            btnEditar.Click += Editar;
+            // 
             // btnAdicionar
             // 
             btnAdicionar.Click += Adicionar;

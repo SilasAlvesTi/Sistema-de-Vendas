@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            txtTitulo = new Label();
             lblNome = new Label();
             txtNome = new TextBox();
             btnAdicionar = new Button();
             btnCancelar = new Button();
+            lblId = new Label();
             SuspendLayout();
             // 
-            // label1
+            // txtTitulo
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.Font = new Font("Segoe UI", 20F);
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(472, 0);
-            label1.TabIndex = 0;
-            label1.Text = "Adicionar Cliente";
-            label1.TextAlign = ContentAlignment.TopRight;
+            txtTitulo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtTitulo.Font = new Font("Segoe UI", 20F);
+            txtTitulo.Location = new Point(12, 9);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.Size = new Size(472, 61);
+            txtTitulo.TabIndex = 0;
+            txtTitulo.Text = "Adicionar Cliente";
+            txtTitulo.TextAlign = ContentAlignment.TopRight;
             // 
             // lblNome
             // 
@@ -88,6 +89,17 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
             // 
+            // lblId
+            // 
+            lblId.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblId.AutoSize = true;
+            lblId.Font = new Font("Segoe UI", 11F);
+            lblId.Location = new Point(43, 108);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(24, 20);
+            lblId.TabIndex = 1;
+            lblId.Text = "ID";
+            // 
             // BaseCriarEditarForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -97,8 +109,9 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnAdicionar);
             Controls.Add(txtNome);
+            Controls.Add(lblId);
             Controls.Add(lblNome);
-            Controls.Add(label1);
+            Controls.Add(txtTitulo);
             Name = "BaseCriarEditarForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Clientes";
@@ -108,10 +121,11 @@
 
         #endregion
 
-        private Label label1;
+        private Label txtTitulo;
         private Label lblNome;
         private TextBox txtNome;
         private Button btnAdicionar;
         private Button btnCancelar;
+        private Label lblId;
     }
 }

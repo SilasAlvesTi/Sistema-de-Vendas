@@ -1,30 +1,63 @@
 ﻿using Sistema_de_Vendas.Models;
-using Sistema_de_Vendas.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
+using System.Diagnostics;
+using System.Net.Http.Headers;
 using System.Text;
-using System.Threading.Tasks;
-
+using System.Text.Json;
 namespace Sistema_de_Vendas.Services
 {
     internal class ClienteService
     {
-        private readonly ClienteRepository _clienteRepository;
+        private readonly string _urlBase;
 
         public ClienteService()
         {
-            _clienteRepository = new ClienteRepository();
+            _urlBase = ConfigurationManager.AppSettings["UrlBase"] + "clientes";
         }
 
-        public List<Cliente> GetAllClientes()
+        public async Task<IEnumerable<Cliente>> GetAllClientes()
         {
-            return _clienteRepository.GetAll().ToList();
+            using (var httpCliente = new HttpClient())
+            {
+                var response = await httpCliente.GetAsync(_urlBase);
+                var jsonString = await response.Content.ReadAsStringAsync();
+
+                var clientes = JsonSerializer.Deserialize<List<Cliente>>(jsonString);
+
+                return clientes;
+
+            }
         }
 
-        public void AdicionarCliente(Cliente cliente)
+        public async Task AdicionarCliente(Cliente cliente)
         {
-            _clienteRepository.Adicionar(cliente);
+            using (var httpCliente = new HttpClient())
+            {
+                using StringContent jsonContent =  new(
+                    JsonSerializer.Serialize(cliente));
+                jsonContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                using HttpResponseMessage response = await httpCliente.PostAsync(_urlBase, jsonContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine("Cliente adicionado com sucesso.");
+                }
+                else
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    Debug.WriteLine($"Erro ao adicionar cliente: {result}");
+                }
+
+            }
+        }
+
+        public void EditarCliente(Cliente cliente)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Cliente? GetClienteById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

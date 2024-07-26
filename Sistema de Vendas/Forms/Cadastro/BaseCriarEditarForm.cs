@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,15 +21,35 @@ namespace Sistema_de_Vendas.Forms.Cadastro
 
             this.DialogResult = DialogResult.Cancel;
         }
+        
+        private int clienteId = 0;
 
-        private void btnAdicionar_Click(object sender, EventArgs e)
+        public void EditarCliente(Cliente cliente)
+        {
+            this.txtTitulo.Text = "Editar Cliente";
+
+            this.lblId.Text = "" + cliente.Id;
+            this.txtNome.Text = cliente.Nome;
+
+            this.clienteId = cliente.Id;
+            btnAdicionar_Click(this, new EventArgs());
+        }
+
+        public void btnAdicionar_Click(object sender, EventArgs e)
         {
             Cliente cliente = new Cliente();
-            cliente.Id = 0;
+            cliente.Id = this.clienteId;
             cliente.Nome = this.txtNome.Text;
-
             ClienteService clienteService = new ClienteService();
-            clienteService.AdicionarCliente(cliente);
+
+            if (cliente.Id == 0)
+            {
+                clienteService.AdicionarCliente(cliente);
+            }
+            else
+            {
+                clienteService.EditarCliente(cliente);
+            }
 
 
             this.DialogResult = DialogResult.OK;
