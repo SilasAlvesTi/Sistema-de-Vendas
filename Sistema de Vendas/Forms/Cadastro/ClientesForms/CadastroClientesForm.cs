@@ -49,7 +49,7 @@ namespace Sistema_de_Vendas.Forms
 
         private void Adicionar(object sender, EventArgs e)
         {
-            BaseCriarEditarForm criarEditarForm = new BaseCriarEditarForm();
+            CriarEditarClienteForm criarEditarForm = new CriarEditarClienteForm();
             if (criarEditarForm.ShowDialog() == DialogResult.OK)
             {
                 ListarClientes();
@@ -69,7 +69,7 @@ namespace Sistema_de_Vendas.Forms
 
             if (cliente is null) return;
 
-            BaseCriarEditarForm editarForm = new BaseCriarEditarForm();
+            CriarEditarClienteForm editarForm = new CriarEditarClienteForm();
             editarForm.EditarCliente(cliente);
 
             if (editarForm.ShowDialog() == DialogResult.OK)

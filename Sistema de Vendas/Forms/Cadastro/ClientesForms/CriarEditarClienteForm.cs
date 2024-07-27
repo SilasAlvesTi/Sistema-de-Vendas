@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace Sistema_de_Vendas.Forms.Cadastro
 {
-    public partial class BaseCriarEditarForm : Form
+    public partial class CriarEditarClienteForm : Form
     {
-        public BaseCriarEditarForm()
+        public CriarEditarClienteForm()
         {
             InitializeComponent();
 

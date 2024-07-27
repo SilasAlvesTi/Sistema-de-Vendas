@@ -30,6 +30,18 @@
         {
             SuspendLayout();
             // 
+            // btnEditar
+            // 
+            btnEditar.Click += Editar;
+            // 
+            // btnApagar
+            // 
+            btnApagar.Click += Deletar;
+            // 
+            // btnAdicionar
+            // 
+            btnAdicionar.Click += Adicionar;
+            // 
             // CadastroProdutoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);

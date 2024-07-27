@@ -1,6 +1,6 @@
 ﻿namespace Sistema_de_Vendas.Forms.Cadastro
 {
-    partial class BaseCriarEditarForm
+    partial class CriarEditarClienteForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,6 +38,17 @@
             lvlIdTexto = new Label();
             SuspendLayout();
             // 
+            // lvlIdTexto
+            // 
+            lvlIdTexto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lvlIdTexto.AutoSize = true;
+            lvlIdTexto.Font = new Font("Segoe UI", 11F);
+            lvlIdTexto.Location = new Point(43, 107);
+            lvlIdTexto.Name = "lvlIdTexto";
+            lvlIdTexto.Size = new Size(97, 20);
+            lvlIdTexto.TabIndex = 1;
+            lvlIdTexto.Text = "Id do CLiente";
+            // 
             // txtTitulo
             // 
             txtTitulo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -66,7 +77,7 @@
             txtNome.Location = new Point(133, 156);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(334, 23);
-            txtNome.TabIndex = 2;
+            txtNome.TabIndex = 0;
             // 
             // btnAdicionar
             // 
@@ -75,8 +86,8 @@
             btnAdicionar.Location = new Point(177, 273);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(75, 23);
-            btnAdicionar.TabIndex = 3;
-            btnAdicionar.Text = "Adicionar";
+            btnAdicionar.TabIndex = 1;
+            btnAdicionar.Text = "Atualizar";
             btnAdicionar.UseVisualStyleBackColor = false;
             btnAdicionar.Click += btnAdicionar_Click;
             // 
@@ -87,7 +98,7 @@
             btnCancelar.Location = new Point(258, 273);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
-            btnCancelar.TabIndex = 3;
+            btnCancelar.TabIndex = 2;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
@@ -103,18 +114,7 @@
             lblId.TabIndex = 1;
             lblId.Text = "ID";
             // 
-            // lvlIdTexto
-            // 
-            lvlIdTexto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lvlIdTexto.AutoSize = true;
-            lvlIdTexto.Font = new Font("Segoe UI", 11F);
-            lvlIdTexto.Location = new Point(43, 107);
-            lvlIdTexto.Name = "lvlIdTexto";
-            lvlIdTexto.Size = new Size(97, 20);
-            lvlIdTexto.TabIndex = 1;
-            lvlIdTexto.Text = "Id do CLiente";
-            // 
-            // BaseCriarEditarForm
+            // CriarEditarClienteForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -127,7 +127,7 @@
             Controls.Add(lblId);
             Controls.Add(lblNome);
             Controls.Add(txtTitulo);
-            Name = "BaseCriarEditarForm";
+            Name = "CriarEditarClienteForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Clientes";
             ResumeLayout(false);
