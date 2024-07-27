@@ -29,6 +29,20 @@ namespace Sistema_de_Vendas.Services
             }
         }
 
+        public async Task<Cliente?> GetClienteById(int id)
+        {
+            using (var httpCliente = new HttpClient())
+            {
+                var response = await httpCliente.GetAsync(_urlBase + $"/{id}");
+                var jsonString = await response.Content.ReadAsStringAsync();
+
+                var cliente = JsonSerializer.Deserialize<Cliente>(jsonString);
+
+                return cliente;
+
+            }
+        }
+
         public async Task AdicionarCliente(Cliente cliente)
         {
             using (var httpCliente = new HttpClient())
@@ -49,28 +63,23 @@ namespace Sistema_de_Vendas.Services
             }
         }
 
-        public async Task<Cliente?> EditarCliente(Cliente cliente)
+        public async void EditarCliente(Cliente cliente)
         {
             using (var httpCliente = new HttpClient())
             {
                 using StringContent jsonContent = new(JsonSerializer.Serialize(cliente));
                 jsonContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 using HttpResponseMessage response = await httpCliente.PutAsync(_urlBase + $"/{cliente.Id}", jsonContent);
-                return cliente;
             }
         }
 
-        public async Task<Cliente?> GetClienteById(int id)
+        public async Task DeletarCliente(int clienteId)
         {
             using (var httpCliente = new HttpClient())
             {
-                var response = await httpCliente.GetAsync(_urlBase + $"/{id}");
-                var jsonString = await response.Content.ReadAsStringAsync();
 
-                var cliente = JsonSerializer.Deserialize<Cliente>(jsonString);
-
-                return cliente;
-
+                var cliente = await this.GetClienteById(clienteId);
+                using HttpResponseMessage response = await httpCliente.DeleteAsync(_urlBase + $"/{cliente.Id}");
             }
         }
     }

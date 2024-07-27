@@ -34,6 +34,10 @@
             // 
             btnEditar.Click += Editar;
             // 
+            // btnApagar
+            // 
+            btnApagar.Click += Deletar;
+            // 
             // btnAdicionar
             // 
             btnAdicionar.Click += Adicionar;

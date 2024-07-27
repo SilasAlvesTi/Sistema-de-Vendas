@@ -77,5 +77,22 @@ namespace Sistema_de_Vendas.Forms
                 ListarClientes();
             }
         }
+
+        private async void Deletar(object sender, EventArgs e)
+        {
+            var val = this.dgvTabela.SelectedRows[0]?.Cells[0].Value.ToString();
+            if (val is null || val.Length is 0)
+                return;
+
+            int clienteId = int.Parse(val);
+
+            var clienteService = new ClienteService();
+
+            await clienteService.DeletarCliente(clienteId);
+
+            ListarClientes();
+
+        }
+
     }
 }
