@@ -51,7 +51,6 @@ namespace Sistema_de_Vendas.Forms.Cadastro
                 clienteService.EditarCliente(cliente);
             }
 
-
             this.DialogResult = DialogResult.OK;
         }
 

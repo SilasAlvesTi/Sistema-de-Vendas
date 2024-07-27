@@ -33,8 +33,7 @@ namespace Sistema_de_Vendas.Services
         {
             using (var httpCliente = new HttpClient())
             {
-                using StringContent jsonContent =  new(
-                    JsonSerializer.Serialize(cliente));
+                using StringContent jsonContent =  new(JsonSerializer.Serialize(cliente));
                 jsonContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 using HttpResponseMessage response = await httpCliente.PostAsync(_urlBase, jsonContent);
                 if (response.IsSuccessStatusCode)
@@ -50,14 +49,29 @@ namespace Sistema_de_Vendas.Services
             }
         }
 
-        public void EditarCliente(Cliente cliente)
+        public async Task<Cliente?> EditarCliente(Cliente cliente)
         {
-            throw new NotImplementedException();
+            using (var httpCliente = new HttpClient())
+            {
+                using StringContent jsonContent = new(JsonSerializer.Serialize(cliente));
+                jsonContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                using HttpResponseMessage response = await httpCliente.PutAsync(_urlBase + $"/{cliente.Id}", jsonContent);
+                return cliente;
+            }
         }
 
-        public Cliente? GetClienteById(int id)
+        public async Task<Cliente?> GetClienteById(int id)
         {
-            throw new NotImplementedException();
+            using (var httpCliente = new HttpClient())
+            {
+                var response = await httpCliente.GetAsync(_urlBase + $"/{id}");
+                var jsonString = await response.Content.ReadAsStringAsync();
+
+                var cliente = JsonSerializer.Deserialize<Cliente>(jsonString);
+
+                return cliente;
+
+            }
         }
     }
 }

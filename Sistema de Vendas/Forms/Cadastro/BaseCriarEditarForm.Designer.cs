@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Label lvlIdTexto;
             txtTitulo = new Label();
             lblNome = new Label();
             txtNome = new TextBox();
             btnAdicionar = new Button();
             btnCancelar = new Button();
             lblId = new Label();
+            lvlIdTexto = new Label();
             SuspendLayout();
             // 
             // txtTitulo
@@ -88,17 +90,29 @@
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // lblId
             // 
             lblId.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblId.AutoSize = true;
             lblId.Font = new Font("Segoe UI", 11F);
-            lblId.Location = new Point(43, 108);
+            lblId.Location = new Point(177, 107);
             lblId.Name = "lblId";
             lblId.Size = new Size(24, 20);
             lblId.TabIndex = 1;
             lblId.Text = "ID";
+            // 
+            // lvlIdTexto
+            // 
+            lvlIdTexto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lvlIdTexto.AutoSize = true;
+            lvlIdTexto.Font = new Font("Segoe UI", 11F);
+            lvlIdTexto.Location = new Point(43, 107);
+            lvlIdTexto.Name = "lvlIdTexto";
+            lvlIdTexto.Size = new Size(97, 20);
+            lvlIdTexto.TabIndex = 1;
+            lvlIdTexto.Text = "Id do CLiente";
             // 
             // BaseCriarEditarForm
             // 
@@ -109,6 +123,7 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnAdicionar);
             Controls.Add(txtNome);
+            Controls.Add(lvlIdTexto);
             Controls.Add(lblId);
             Controls.Add(lblNome);
             Controls.Add(txtTitulo);

@@ -2,6 +2,7 @@
 using Sistema_de_Vendas.Models;
 using Sistema_de_Vendas.Services;
 using System.Data;
+using System.Diagnostics;
 
 namespace Sistema_de_Vendas.Forms
 {
@@ -38,7 +39,6 @@ namespace Sistema_de_Vendas.Forms
 
                 dataTable.Rows.Add(row);
             }
-
             this.dgvTabela.DataSource = dataTable;
         }
 
@@ -56,7 +56,7 @@ namespace Sistema_de_Vendas.Forms
             }
         }
 
-        private void Editar(object sender, EventArgs e)
+        private async void Editar(object sender, EventArgs e)
         {
             var val = this.dgvTabela.SelectedRows[0]?.Cells[0].Value.ToString();
             if (val is null || val.Length is 0)
@@ -65,7 +65,7 @@ namespace Sistema_de_Vendas.Forms
             int clienteId = int.Parse(val);
 
             var clienteService = new ClienteService();
-            var cliente = clienteService.GetClienteById(clienteId);
+            var cliente = await clienteService.GetClienteById(clienteId);
 
             if (cliente is null) return;
 
