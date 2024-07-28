@@ -124,6 +124,7 @@
             btnVender.TabIndex = 3;
             btnVender.Text = "Vender";
             btnVender.UseVisualStyleBackColor = false;
+            btnVender.Click += btnVender_Click;
             // 
             // btnContas
             // 

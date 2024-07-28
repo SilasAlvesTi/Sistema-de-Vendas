@@ -1,5 +1,6 @@
 ﻿using Sistema_de_Vendas.Forms;
 using Sistema_de_Vendas.Forms.Contas;
+using Sistema_de_Vendas.Forms.Vender;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,6 +50,12 @@ namespace Sistema_de_Vendas
         private void btnContas_Click(object sender, EventArgs e)
         {
             var contas = new ContasForm();
+            contas.ShowDialog();
+        }
+
+        private void btnVender_Click(object sender, EventArgs e)
+        {
+            var contas = new VenderForm();
             contas.ShowDialog();
         }
     }
